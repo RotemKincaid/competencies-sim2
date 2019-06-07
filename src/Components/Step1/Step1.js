@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { setListing } from "../../Ducks/reducer";
+import "./Step1.scss";
 
 class Step1 extends Component {
   constructor() {
@@ -59,8 +60,8 @@ class Step1 extends Component {
     const { name, address, city, state, zipcode } = this.state;
 
     return (
-      <div>
-        <h1>Add New Listing</h1>
+      <div className="step1-main">
+        <h1 className="step1-add-new">Add New Listing</h1>
         Name: <input value={name} onChange={this.nameHandler} />
         Address: <input value={address} onChange={this.addressHandler} />
         City: <input value={city} onChange={this.cityHandler} />

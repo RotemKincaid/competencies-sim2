@@ -4,6 +4,7 @@ import House from "../House/House";
 import axios from "axios";
 import { setListing } from "../../Ducks/reducer";
 import { connect } from "react-redux";
+import "./Dashboard.scss";
 
 class Dashboard extends Component {
   constructor() {
@@ -81,17 +82,24 @@ class Dashboard extends Component {
             pic={house.pic_url}
             deleteHouse={this.deleteHouse}
             editHouse={this.editHouse}
+            monthly_mortgage_amount={this.monthly_mortgage_amount}
+            desired_rent={this.desired_rent}
           />
         </div>
       );
     });
     return (
-      <div>
-        Dashboard
-        {mappedHouses}
-        <Link to="/wizard/step1">
-          <button>Add New Property</button>
-        </Link>
+      <div className="dashboard-main">
+        <div className="dashboard-inner">
+          <div className="title-btn">
+            <h1>Dashboard</h1>
+            <Link to="/wizard/step1">
+              <button className="add-prop">Add New Property</button>
+            </Link>
+          </div>
+          <h3>Home Listings</h3>
+          {mappedHouses}
+        </div>
       </div>
     );
   }
