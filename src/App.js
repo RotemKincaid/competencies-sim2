@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Components/Header/Header";
-import House from "./Components/House/House";
+// import House from "./Components/House/House";
 // import Wizard from "./Components/Wizard/Wizard";
 // import Dashboard from "./Components/Dashboard/Dashboard";
 import routes from "./routes";

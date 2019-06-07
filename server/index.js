@@ -14,9 +14,17 @@ massive(CONNECTION_STRING).then(dbInstance => {
   console.log("connected to db");
 });
 
+app.use(express.static(`${__dirname}/../build`));
+
 app.get("/api/houses", ctrl.getHouses);
 app.post("/api/houses", ctrl.addHouse);
-app.delete("/api/houses", ctrl.deleteHouse);
+app.delete("/api/houses/:id", ctrl.deleteHouse);
+app.put("/api/houses/:id", ctrl.editHouse);
+
+const path = require("path");
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
+});
 
 app.listen(SERVER_PORT || 4000, () =>
   console.log(`server listening on port ${SERVER_PORT}`)
